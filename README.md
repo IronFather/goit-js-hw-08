@@ -1,1 +1,1 @@
-Home work #8 (JavaScript)
+Homework 8 (JavaScript)
