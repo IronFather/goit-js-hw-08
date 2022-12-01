@@ -9,8 +9,8 @@
 
 // Add imports above this line
 import { galleryItems } from './gallery-items';
-import SimpleLightbox from "../../node_modules/simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const galleryEl = document.querySelector('.gallery');
 
