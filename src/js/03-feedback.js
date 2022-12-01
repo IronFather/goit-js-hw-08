@@ -55,3 +55,18 @@ function onFeedbackFormReplay() {
   }
 }
 
+refs.feedbackFormEl.addEventListener("submit", onFeedbackFormReset);
+
+function onFeedbackFormReset(e) {
+  e.preventDefault();
+
+  let parsedLocalStorageObject = JSON.parse(localStorage.getItem("feedback-form-state"));
+
+  if (parsedLocalStorageObject) {
+    console.log(parsedLocalStorageObject);
+  }
+
+  refs.feedbackFormEl.reset();
+  localStorage.removeItem("feedback-form-state");
+  feedbackFormObject = {};
+}
