@@ -21,22 +21,37 @@ const throttler = require('lodash.throttle');
 const refs = {
   feedbackFormEl: document.querySelector(".feedback-form"),
   inputEmailEl: document.querySelector("input[name=email]"),
-  textareaEl: document.querySelector("textareaEl[name=message]"),
+  textareaEl: document.querySelector("textarea[name=message]"),
 };
 
-let formObject = {};
+let feedbackFormObject = {};
 
-refs.feedbackFormEl.addEventListener(
-  'input',
-  throttler(onFeedbackFormInput, 500)
-);
+refs.feedbackFormEl.addEventListener("input", throttler(onFeedbackFormInput, 500));
 
-function onFeedbackFormInput(event) {
-  formObject[event.target.name] = event.target.value;
+function onFeedbackFormInput(e) {
+  feedbackFormObject[e.target.name] = e.target.value;
 
-  let localSorageObject = JSON.stringify(formObject);
-  localStorage.setItem('feedback-form-state', localSorageObject);
+  let localStorageObject = JSON.stringify(feedbackFormObject);
+  localStorage.setItem("feedback-form-state", localStorageObject);
 }
 
+window.addEventListener("load", onFeedbackFormReplay);
 
+function onFeedbackFormReplay() {
+  if (!localStorage.getItem("feedback-form-state")) {
+    return;
+  }
+
+  let parsedLocalStorageObject = JSON.parse(localStorage.getItem("feedback-form-state"));
+
+  if (parsedLocalStorageObject.email) {
+    feedbackFormObject.email = parsedLocalStorageObject.email;
+    refs.inputEmailEl.value = parsedLocalStorageObject.email;
+  }
+
+  if (parsedLocalStorageObject.message) {
+    feedbackFormObject.message = parsedLocalStorageObject.message;
+    refs.textareaEl.value = parsedLocalStorageObject.message;
+  }
+}
 
