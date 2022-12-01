@@ -15,7 +15,7 @@ function onPlay(data) {
 }
 
 const playerCurrentTime = localStorage.getItem('videoplayer-current-time');
-console.log(`I see playerCurrentTime: ${playerCurrentTime}`);
+// console.log(`I see playerCurrentTime: ${playerCurrentTime}`);
 
 if (playerCurrentTime) {
     vimeoPlayer.setCurrentTime(playerCurrentTime);
