@@ -1,8 +1,8 @@
 {
   "name": "goit-js-hw-08",
   "version": "2.0.0",
-  "description": "Home work 7 (Javascript)",
-  "homepage": "https://github.com/IronFather/goit-js-hw-08#readme",
+  "description": "Home work 8 (Javascript)",
+  "homepage": "https://github.com/IronFather/goit-js-hw-08/",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /goit-js-hw-08/"
